@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		E7039FAC25F90A25008E76B4 /* swiftui_testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7039FAB25F90A25008E76B4 /* swiftui_testApp.swift */; };
 		E7039FAE25F90A25008E76B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7039FAD25F90A25008E76B4 /* ContentView.swift */; };
-		E7039FB025F90A26008E76B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7039FAF25F90A26008E76B4 /* Assets.xcassets */; };
 		E7039FB325F90A26008E76B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7039FB225F90A26008E76B4 /* Preview Assets.xcassets */; };
 		E7039FBE25F90A26008E76B4 /* swiftui_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7039FBD25F90A26008E76B4 /* swiftui_testTests.swift */; };
 		E7039FC925F90A26008E76B4 /* swiftui_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7039FC825F90A26008E76B4 /* swiftui_testUITests.swift */; };
+		E7039FE025F91068008E76B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7039FDF25F91068008E76B4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		E7039FA825F90A25008E76B4 /* swiftui-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7039FAB25F90A25008E76B4 /* swiftui_testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_testApp.swift; sourceTree = "<group>"; };
 		E7039FAD25F90A25008E76B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E7039FAF25F90A26008E76B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7039FB225F90A26008E76B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7039FB425F90A26008E76B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7039FB925F90A26008E76B4 /* swiftui-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swiftui-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +44,7 @@
 		E7039FC425F90A26008E76B4 /* swiftui-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swiftui-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7039FC825F90A26008E76B4 /* swiftui_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_testUITests.swift; sourceTree = "<group>"; };
 		E7039FCA25F90A26008E76B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7039FDF25F91068008E76B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +95,9 @@
 		E7039FAA25F90A25008E76B4 /* swiftui-test */ = {
 			isa = PBXGroup;
 			children = (
+				E7039FDF25F91068008E76B4 /* Assets.xcassets */,
 				E7039FAB25F90A25008E76B4 /* swiftui_testApp.swift */,
 				E7039FAD25F90A25008E76B4 /* ContentView.swift */,
-				E7039FAF25F90A26008E76B4 /* Assets.xcassets */,
 				E7039FB425F90A26008E76B4 /* Info.plist */,
 				E7039FB125F90A26008E76B4 /* Preview Content */,
 			);
@@ -233,8 +233,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7039FE025F91068008E76B4 /* Assets.xcassets in Resources */,
 				E7039FB325F90A26008E76B4 /* Preview Assets.xcassets in Resources */,
-				E7039FB025F90A26008E76B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
