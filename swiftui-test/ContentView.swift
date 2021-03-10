@@ -8,39 +8,93 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var show = false
+    @State var vState = CGSize.zero
+    @State var cShow=false
+    @State var bState = CGSize.zero
+    @State var ShowFull = false
     var body: some View {
         ZStack {
             TitleView()
+                .blur(radius: show ? 20:0)
+                .opacity (cShow ? 0.4:1)
+                .offset(y:cShow ? -200:0)
+                .animation(Animation.default.delay(0.1))
             BackCardView()
-                .background(Color(#colorLiteral(red: 0, green: 0.8879132867, blue: 0, alpha: 1)))
+                .frame(width: cShow ? 300: 340, height:220)
+                .background(show ? Color(#colorLiteral(red: 0, green: 0.8879132867, blue: 0, alpha: 1)): Color(#colorLiteral(red: 0.7039064765, green: 0, blue: 0.6665282249, alpha: 1)))
                 .cornerRadius(20)
-                .offset(x:0,y:-60)
-                .scaleEffect(0.8)
-                .rotationEffect(.degrees(10))
-                .rotation3DEffect(.degrees(10), axis: (x:10, y:0, z:0))
+                .shadow(radius:20)
+                .offset(x:0,y: show ? -400:-70)
+                .offset(x:vState.width, y:vState.height)
+                .offset(y:cShow ? -180 : 0)
+                .scaleEffect(cShow ? 1 : 0.8)
+                .rotationEffect(.degrees(show ? 0:10))
+                .rotationEffect(.degrees(cShow ? -10:0))
+                .rotation3DEffect(.degrees(show ? 0:10), axis: (x:show ? 0:10, y:0, z:0))
+                .rotation3DEffect(.degrees(cShow ? -10:0), axis: (x:10, y:0, z:0))
                 .blendMode(.hardLight)
+                .animation(.easeInOut(duration: 0.5))
             BackCardView()
-                .background(Color(#colorLiteral(red: 0.7039064765, green: 0, blue: 0.6665282249, alpha: 1)))
+                .frame(width:340, height:220)
+                .background(show ? Color(#colorLiteral(red: 0.7039064765, green: 0, blue: 0.6665282249, alpha: 1)): Color(#colorLiteral(red: 0, green: 0.8879132867, blue: 0, alpha: 1)))
                 .cornerRadius(20)
-                .offset(x:0,y:-30)
-                .scaleEffect(0.9)
-                .rotationEffect(.degrees(5)).rotation3DEffect(.degrees(5), axis: (x:5, y:0, z:0))
+                .shadow(radius:20)
+                .offset(x:0,y: show ? -200:-30)
+                .offset(x:vState.width, y:vState.height)
+                .offset(y:cShow ? -140 : 0)
+                .scaleEffect(cShow ? 1 : 0.9)
+                .rotationEffect(.degrees(show ? 0 : 5))
+                .rotation3DEffect(.degrees(show ? 0:5), axis: (x:show ? 0:5, y:0, z:0))
+                .rotation3DEffect(.degrees(cShow ? -5:0), axis: (x:5, y:0, z:0))
+                .rotationEffect(.degrees(cShow ? -5:0))
                 .blendMode(.hardLight)
+                .animation(.easeInOut(duration: 0.3))
             CardView()
-            VStack {
-                Text("Адаптивный дизайн SwiftUI от человека, не знающего ничего про дизайн. Но зато цвета вырвиглазные!")
-                    .multilineTextAlignment(.center)
-                    .font(.subheadline)
-                    .lineSpacing(4)
-                Spacer()
-            }
-            .padding(.top, 8)
-            .padding(.horizontal, 20)
-            .frame(maxWidth: .infinity)
-            .background(Color("Background 3"))
-            .cornerRadius(30)
-            .shadow(radius: 20)
-            .offset(x: 0, y:500)
+                .frame(width: cShow ? 370 : 340, height:220)
+                .background(Color.black)
+                //.cornerRadius(20.0)
+                .clipShape(RoundedRectangle(cornerRadius: cShow ? 30 : 20, style: .continuous))
+                .shadow(radius: 20)
+                .offset(x:vState.width, y:vState.height)
+                .offset(y:cShow ? -100 : 0)
+                .blendMode(.hardLight)
+                .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0))
+                .onTapGesture {
+                    self.cShow.toggle()
+                }
+                .gesture(DragGesture().onChanged { value in self .vState=value.translation
+                            self.show=true}
+                            .onEnded {value in self.vState = .zero
+                                self.show=false
+                            })
+            BottomCardView()
+                .offset(x: 0, y:cShow ? 500:1000)
+                .offset(y:bState.height)
+                .blur(radius: show ? 20:0)
+                .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8))
+                .gesture(DragGesture().onChanged {
+                    value in self.bState = value.translation
+                    if self.ShowFull {
+                        self.bState.height -= 300
+                    }
+                    if self.bState.height < -300 {
+                        self.bState.height = -300
+                    }
+                }
+                .onEnded {value in
+                    if self.bState.height > 100 {
+                        self.cShow = false
+                    }
+                    else if (self.bState.height < -200 && !self.ShowFull) || (self.bState.height < 250 && self.ShowFull) {
+                        self.bState.height = -400
+                        self.ShowFull = true
+                    }
+                    else {
+                      self.bState = .zero
+                      self.ShowFull = false
+                    }
+                })
         }
     }
 }
@@ -77,10 +131,7 @@ struct CardView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 300, height: 110, alignment: .top)
         }
-        .frame(width: 340, height:220)
-        .background(Color.black)
-        .cornerRadius(20.0)
-        .shadow(radius: 20)
+        
     }
 }
 
@@ -89,7 +140,7 @@ struct BackCardView: View {
         VStack {
             Spacer()
         }
-        .frame(width:340, height:220)
+        
         
     }
 }
@@ -106,5 +157,28 @@ struct TitleView: View {
             .padding()
             Spacer()
         }
+    }
+}
+
+struct BottomCardView: View {
+    var body: some View {
+        VStack(spacing:15) {
+            Rectangle()
+                .frame(width:40, height:5)
+                .cornerRadius(3)
+                .opacity(0.3)
+            Text("Адаптивный дизайн SwiftUI от человека, не знающего ничего про дизайн. Но зато цвета вырвиглазные!")
+                .multilineTextAlignment(.center)
+                .font(.subheadline)
+                .lineSpacing(4)
+            Spacer()
+        }
+        .padding(.top, 8)
+        .padding(.horizontal, 20)
+        .frame(maxWidth: .infinity)
+        .background(Color("Background 3"))
+        .cornerRadius(30)
+        .shadow(radius: 20)
+        
     }
 }
