@@ -52,7 +52,7 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 0.3))
             CardView()
                 .frame(width: cShow ? 370 : 340, height:220)
-                .background(Color.black)
+                .background(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
                 //.cornerRadius(20.0)
                 .clipShape(RoundedRectangle(cornerRadius: cShow ? 30 : 20, style: .continuous))
                 .shadow(radius: 20)
@@ -114,7 +114,7 @@ struct CardView: View {
                     Text("Дизайн в SwiftUI")
                         .font(.title)
                         .fontWeight(.semibold)
-                        .foregroundColor(.yellow) //я просто хочу желтый текст)))
+                        .foregroundColor(Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))) //я просто хочу желтый текст)))
                     Text("Сертификат")
                         .foregroundColor(Color("Primary"))
                 }
