@@ -30,7 +30,7 @@ struct HomeView: View {
                 }
                     
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing:15) {
+                    HStack(spacing:10) {
                         ForEach (sectionData) { item in
                             GeometryReader { geometry in
                                 SectionView(section: item)
@@ -43,7 +43,7 @@ struct HomeView: View {
                     }.padding(30)
                     .padding(.bottom, 30)
                 }
-                .offset(y:-30)
+                .offset(y: -30)
                 HStack {
                     Text("Курсы")
                         .font(.title)
