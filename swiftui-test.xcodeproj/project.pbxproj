@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E70262B225FCC9D200661F2A /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70262B125FCC9D200661F2A /* RingView.swift */; };
 		E7039FAC25F90A25008E76B4 /* swiftui_testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7039FAB25F90A25008E76B4 /* swiftui_testApp.swift */; };
 		E7039FAE25F90A25008E76B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7039FAD25F90A25008E76B4 /* ContentView.swift */; };
 		E7039FB325F90A26008E76B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7039FB225F90A26008E76B4 /* Preview Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E70262B125FCC9D200661F2A /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		E7039FA825F90A25008E76B4 /* swiftui-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7039FAB25F90A25008E76B4 /* swiftui_testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftui_testApp.swift; sourceTree = "<group>"; };
 		E7039FAD25F90A25008E76B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				E7039FAD25F90A25008E76B4 /* ContentView.swift */,
 				E790ECB225FA515100D0D8A9 /* MenuView.swift */,
 				E790ECB725FA58DF00D0D8A9 /* Home.swift */,
+				E70262B125FCC9D200661F2A /* RingView.swift */,
 				E790ECBC25FA5F0200D0D8A9 /* HomeView.swift */,
 				E7039FB425F90A26008E76B4 /* Info.plist */,
 				E7039FB125F90A26008E76B4 /* Preview Content */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70262B225FCC9D200661F2A /* RingView.swift in Sources */,
 				E7039FAE25F90A25008E76B4 /* ContentView.swift in Sources */,
 				E790ECB325FA515100D0D8A9 /* MenuView.swift in Sources */,
 				E790ECB825FA58DF00D0D8A9 /* Home.swift in Sources */,
