@@ -43,6 +43,40 @@ struct HomeView: View {
                     }.padding(30)
                     .padding(.bottom, 30)
                 }
+                .gesture(DragGesture().onEnded ({_ in GeometryReader(content: {
+                    geom in
+                    let totalsize = geom.size.width
+                    let curpos = geom.frame(in:.global).minX
+                    if curpos <= totalsize/4 {
+                        ScrollViewReader {
+                            proxy in ScrollView {
+                                withAnimation{
+                                    proxy.scrollTo(0)
+                                }
+                            }
+                        }
+                    }
+                    else if (curpos > totalsize/4) && (curpos <= totalsize * 3 / 4) {
+                        ScrollViewReader {
+                            proxy in ScrollView {
+                                withAnimation{
+                                    proxy.scrollTo(totalsize/2)
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        ScrollViewReader {
+                            proxy in ScrollView {
+                                withAnimation{
+                                    proxy.scrollTo(totalsize)
+                                }
+                            }
+                        }
+                    }
+                })
+                    
+                }))
                 .offset(y: -30)
                 HStack {
                     Text("Курсы")
